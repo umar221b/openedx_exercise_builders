@@ -1,0 +1,49 @@
+<div class="play-area" data-controller="exercises">
+  <div class="row mb-5">
+    <div class="col-2">
+      <%= link_to 'Back', exercises_path, class: 'btn btn-outline-danger' %>
+    </div>
+    <div class="col-8">
+      <h2 class="text-center">Fill in the Blank</h2>
+    </div>
+
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12 col-lg-7">
+      <div class="row mb-3">
+        <div class="col-10">
+          <span class="text-muted">Start writing the paragraph and click the "Add Blank" button when you need to insert a blank in the cursor's current position.</span>
+        </div>
+        <div class="col-2 text-end">
+          <button class="btn btn-primary" data-action="exercises#addBlank">Add Blank</button>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="input-area">
+            <textarea class="form-control" data-exercises-target="textarea" data-blanks="0" rows="18"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-5">
+      <div class="row mb-3">
+        <div class="col">
+          <h2>Correct Answers</h2>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="correct-answers-area" data-exercises-target="correctAnswersArea">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col text-end">
+      <button class="btn btn-success btn-lg">Generate</button>
+    </div>
+  </div>
+</div>
