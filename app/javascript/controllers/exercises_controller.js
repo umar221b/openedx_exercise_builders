@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-    static targets = [ "textarea", "correctAnswersArea" ]
+    static targets = [ "textarea", "correctAnswersArea", "direction" ]
 
     addBlank() {
         const textarea = this.textareaTarget
@@ -75,4 +75,11 @@ export default class extends Controller {
         textarea.value = newTest
     }
 
+    switchDirection() {
+        const textarea = this.textareaTarget
+        const directionLabel = this.directionTarget
+        textarea.dir = textarea.dir === "rtl" ? "ltr" : "rtl"
+        console.log(directionLabel)
+        directionLabel.textContent = textarea.dir === "rtl" ? "LTR" : "RTL"
+    }
 }
