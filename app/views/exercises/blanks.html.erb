@@ -15,7 +15,7 @@
         </div>
         <div class="col-3 text-end">
           <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
-          <label data-action="click->exercises#switchDirection" data-exercises-target="direction" class="btn btn-outline-success" for="btn-check-outlined">LTR</label>
+          <label data-action="click->exercises#switchDirection" class="btn btn-outline-success" for="btn-check-outlined">RTL</label>
           <button class="btn btn-primary" data-action="exercises#addBlank">Add Blank</button>
         </div>
       </div>
@@ -44,7 +44,12 @@
   </div>
   <div class="row mb-3">
     <div class="col text-end">
-      <button class="btn btn-success btn-lg">Generate</button>
+      <button class="btn btn-success btn-lg" data-action="exercises#submitExercise">Generate</button>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <textarea class="d-none output-textarea form-control" readonly data-exercises-target="outputTextarea" rows="18"></textarea>
     </div>
   </div>
 </div>

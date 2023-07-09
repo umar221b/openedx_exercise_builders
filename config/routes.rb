@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: %i[ registrations unlocks ]
 
-  resources :exercises, only: %i[index] do
+  resources :exercises, only: %i[index create] do
     collection do
       get 'blanks'
       get 'dropdowns'

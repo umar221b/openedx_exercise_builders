@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
+import axios from "../lib/axios";
 
 export default class extends Controller {
 
-    static targets = [ "textarea", "correctAnswersArea", "direction" ]
+    static targets = [ "textarea", "correctAnswersArea", "direction", "outputTextarea" ]
 
     addBlank() {
         const textarea = this.textareaTarget
@@ -27,10 +28,11 @@ export default class extends Controller {
 
         // add blank to correct answers area
         const correctAnswersDiv = this.correctAnswersAreaTarget
-        correctAnswersDiv.innerHTML += `<div id="code-${blanksCount}" class="row mb-3"><div class="col-2 pt-1 pb-1"><span>${blankCode}:</span></div><div class="col-8"><input type="text" class="form-control" name="code-${blanksCount}"></div><div class="col-2"><button class="btn btn-danger" data-action="exercises#removeBlank" data-exercises-row-id-param="code-${blanksCount}">X</button></div></div>`
+        correctAnswersDiv.innerHTML += `<div id="code-${blanksCount}" class="row mb-3"><div class="col-2 pt-1 pb-1"><span>${blankCode}:</span></div><div class="col-8"><input type="text" class="form-control exercise-blank" name="code-${blanksCount}"></div><div class="col-2"><button class="btn btn-danger" data-action="exercises#removeBlank" data-exercises-row-id-param="code-${blanksCount}">X</button></div></div>`
 
         // increment the data-blanks attribute on the textarea
         textarea.setAttribute('data-blanks', parseInt(blanksCount) + 1)
+        textarea.focus()
     }
 
     removeBlank(event) {
@@ -77,9 +79,28 @@ export default class extends Controller {
 
     switchDirection() {
         const textarea = this.textareaTarget
-        const directionLabel = this.directionTarget
         textarea.dir = textarea.dir === "rtl" ? "ltr" : "rtl"
-        console.log(directionLabel)
-        directionLabel.textContent = textarea.dir === "rtl" ? "LTR" : "RTL"
+        setTimeout(function (){
+            textarea.focus()
+        }, 100);
+
+    }
+
+    submitExercise() {
+        const textarea = this.textareaTarget
+        const text = textarea.value
+        const answersHash = {}
+        document.querySelectorAll('.exercise-blank').forEach(function(input) {
+            answersHash[input.name] = input.value
+        });
+        axios.post("/exercises", {type: 'blanks', text: text, subsitutions: answersHash}).then((data) => {
+            const outputTextarea = this.outputTextareaTarget
+            const textarea = this.textareaTarget
+            outputTextarea.dir = textarea.dir
+            outputTextarea.innerHTML = data.data['response']
+            outputTextarea.classList.remove("d-none");
+        }).catch((error) => {
+            console.error("Error:", error);
+        });
     }
 }
