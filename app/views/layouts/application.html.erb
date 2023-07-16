@@ -18,17 +18,19 @@
       <%= render 'layouts/navbars/navbar_unauthenticated' %>
     <% end %>
   </div>
-  <div class="container">
-    <% if notice %>
-      <div class="alert alert-success" role="alert">
-        <%= notice %>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class="alert alert-danger" role="alert">
-        <%= alert %>
-      </div>
-    <% end %>
+  <div id="main-container" class="container">
+    <div id="alerts-container">
+      <% if notice %>
+        <div id="flash-notice" class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div id="flash-alert" class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
   </body>

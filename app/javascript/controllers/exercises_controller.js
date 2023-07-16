@@ -3,7 +3,7 @@ import axios from "../lib/axios";
 
 export default class extends Controller {
 
-    static targets = [ "textarea", "correctAnswersArea", "direction", "outputTextarea" ]
+    static targets = [ "textarea", "correctAnswersArea", "direction", "outputTextarea", "actionsDiv" ]
 
     addBlank() {
         const textarea = this.textareaTarget
@@ -90,17 +90,52 @@ export default class extends Controller {
         const textarea = this.textareaTarget
         const text = textarea.value
         const answersHash = {}
+
         document.querySelectorAll('.exercise-blank').forEach(function(input) {
             answersHash[input.name] = input.value
         });
-        axios.post("/exercises", {type: 'blanks', text: text, subsitutions: answersHash}).then((data) => {
+
+        axios.post("/exercises", { exercise: {type: 'blanks', text: text, substitutions: answersHash, direction: textarea.dir}}).then((data) => {
+            // remove the error alert if it is shown
+            const errorAlert = document.getElementById('extra-flash-alert')
+            if (errorAlert)
+                errorAlert.remove()
+
+            // set the response to the output text area and display it
             const outputTextarea = this.outputTextareaTarget
-            const textarea = this.textareaTarget
-            outputTextarea.dir = textarea.dir
             outputTextarea.innerHTML = data.data['response']
             outputTextarea.classList.remove("d-none");
+
+            const copyButton = document.getElementById('copy-button')
+            if (!copyButton) {
+                const actionsDiv = this.actionsDivTarget
+                actionsDiv.innerHTML = "<button id=\"copy-button\" class=\"btn btn-lg btn-warning\" data-action=\"exercises#copyGeneratedCode\">Copy</button>" + actionsDiv.innerHTML
+            }
         }).catch((error) => {
-            console.error("Error:", error);
+            console.log(error)
+            // hide the output text area
+            const outputTextarea = this.outputTextareaTarget
+            outputTextarea.classList.add("d-none");
+
+            // display an error alert
+            const extraAlertDiv = document.getElementById('extra-flash-alert')
+            if (!extraAlertDiv) {
+                const mainContainer = document.getElementById('alerts-container')
+                mainContainer.innerHTML += `<div id="extra-flash-alert" class="alert alert-danger" role="alert">${error.response.data['error']}</div>`
+            }
+            else {
+                extraAlertDiv.innerHTML = error.response.data['error']
+            }
+
+            const copyButton = document.getElementById('copy-button')
+            copyButton.remove()
         });
+    }
+
+    copyGeneratedCode() {
+        const outputTextarea = this.outputTextareaTarget
+        outputTextarea.select();
+        outputTextarea.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(outputTextarea.textContent);
     }
 }
