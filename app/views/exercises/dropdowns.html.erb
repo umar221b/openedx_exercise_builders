@@ -1,0 +1,55 @@
+<div class="play-area" data-controller="dropdowns">
+  <div class="row mb-5">
+    <div class="col-2">
+      <%= link_to 'Back', exercises_path, class: 'btn btn-outline-danger' %>
+    </div>
+    <div class="col-8">
+      <h2 class="text-center">Choose from Dropdown</h2>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12 col-lg-7">
+      <div class="row mb-3">
+        <div class="col-8">
+          <span class="text-muted">Start writing the paragraph and click the "Add Dropdown" button when you need to insert a dropdown in the cursor's current position.</span>
+        </div>
+        <div class="col-4 text-end">
+          <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
+          <label data-action="click->dropdowns#switchDirection" class="btn btn-outline-success" for="btn-check-outlined">RTL</label>
+          <button class="btn btn-primary" data-action="dropdowns#addDropdown">Add Dropdown</button>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="input-area">
+            <textarea dir="rtl" class="form-control" data-dropdowns-target="textarea" data-dropdowns="0" rows="18"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-5">
+      <div class="row mb-3">
+        <div class="col">
+          <h2>Dropdown Options</h2>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="options-area" data-dropdowns-target="optionsArea" style="padding: 0 4px;">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col text-end" data-dropdowns-target="actionsDiv">
+      <button class="btn btn-success btn-lg" data-action="dropdowns#submitExercise">Generate</button>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <textarea class="d-none output-textarea form-control" readonly data-dropdowns-target="outputTextarea" rows="18"></textarea>
+    </div>
+  </div>
+</div>

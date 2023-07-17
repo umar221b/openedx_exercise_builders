@@ -1,4 +1,4 @@
-<div class="play-area" data-controller="exercises">
+<div class="play-area" data-controller="blanks">
   <div class="row mb-5">
     <div class="col-2">
       <%= link_to 'Back', exercises_path, class: 'btn btn-outline-danger' %>
@@ -15,14 +15,14 @@
         </div>
         <div class="col-3 text-end">
           <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
-          <label data-action="click->exercises#switchDirection" class="btn btn-outline-success" for="btn-check-outlined">RTL</label>
-          <button class="btn btn-primary" data-action="exercises#addBlank">Add Blank</button>
+          <label data-action="click->blanks#switchDirection" class="btn btn-outline-success" for="btn-check-outlined">RTL</label>
+          <button class="btn btn-primary" data-action="blanks#addBlank">Add Blank</button>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
           <div class="input-area">
-            <textarea dir="rtl" class="form-control" data-exercises-target="textarea" data-blanks="0" rows="18"></textarea>
+            <textarea dir="rtl" class="form-control" data-blanks-target="textarea" data-blanks="0" rows="18"></textarea>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
       </div>
       <div class="row mb-3">
         <div class="col">
-          <div class="correct-answers-area" data-exercises-target="correctAnswersArea">
+          <div class="correct-answers-area" data-blanks-target="correctAnswersArea">
 
           </div>
         </div>
@@ -43,13 +43,13 @@
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col text-end" data-exercises-target="actionsDiv">
-      <button class="btn btn-success btn-lg" data-action="exercises#submitExercise">Generate</button>
+    <div class="col text-end" data-blanks-target="actionsDiv">
+      <button class="btn btn-success btn-lg" data-action="blanks#submitExercise">Generate</button>
     </div>
   </div>
   <div class="row mb-3">
     <div class="col">
-      <textarea class="d-none output-textarea form-control" readonly data-exercises-target="outputTextarea" rows="18"></textarea>
+      <textarea class="d-none output-textarea form-control" readonly data-blanks-target="outputTextarea" rows="18"></textarea>
     </div>
   </div>
 </div>

@@ -27,9 +27,9 @@ export default class extends Controller {
         textarea.selectionStart = cursorPosition + blankCode.length
 
         // add blank to correct answers area
+        const blankHTML = `<div id="code-${blanksCount}" class="row mb-3"><div class="col-2 pt-1 pb-1"><span>${blankCode}:</span></div><div class="col-8"><input type="text" class="form-control exercise-blank" name="code-${blanksCount}"></div><div class="col-2"><button class="btn btn-danger" data-action="blanks#removeBlank" data-blanks-row-id-param="code-${blanksCount}">X</button></div></div>`
         const correctAnswersDiv = this.correctAnswersAreaTarget
-        correctAnswersDiv.innerHTML += `<div id="code-${blanksCount}" class="row mb-3"><div class="col-2 pt-1 pb-1"><span>${blankCode}:</span></div><div class="col-8"><input type="text" class="form-control exercise-blank" name="code-${blanksCount}"></div><div class="col-2"><button class="btn btn-danger" data-action="exercises#removeBlank" data-exercises-row-id-param="code-${blanksCount}">X</button></div></div>`
-
+        correctAnswersDiv.insertAdjacentHTML( 'beforeend', blankHTML)
         // increment the data-blanks attribute on the textarea
         textarea.setAttribute('data-blanks', parseInt(blanksCount) + 1)
         textarea.focus()
@@ -109,10 +109,9 @@ export default class extends Controller {
             const copyButton = document.getElementById('copy-button')
             if (!copyButton) {
                 const actionsDiv = this.actionsDivTarget
-                actionsDiv.innerHTML = "<button id=\"copy-button\" class=\"btn btn-lg btn-warning\" data-action=\"exercises#copyGeneratedCode\">Copy</button>" + actionsDiv.innerHTML
+                actionsDiv.innerHTML = "<button id=\"copy-button\" class=\"btn btn-lg btn-warning\" data-action=\"blanks#copyGeneratedCode\">Copy</button>" + actionsDiv.innerHTML
             }
         }).catch((error) => {
-            console.log(error)
             // hide the output text area
             const outputTextarea = this.outputTextareaTarget
             outputTextarea.classList.add("d-none");

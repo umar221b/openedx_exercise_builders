@@ -26,4 +26,20 @@
   .output-textarea {
     width: 100%;
   }
+
+  .dropdown-area {
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  }
+  .dropdown-label {
+    padding: 6px 0;
+  }
+
+  .dropdown-option {
+    .form-check.form-switch {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
 }

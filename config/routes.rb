@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'dropdowns'
       get 'vocabulary'
       get 'vocabulary_table'
+      get 'fill_table'
     end
   end
 end

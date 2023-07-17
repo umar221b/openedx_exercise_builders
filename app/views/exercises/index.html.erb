@@ -3,17 +3,20 @@
     <h2 class="text-center">Choose an exercise type</h2>
   </div>
 </div>
-<div class="row">
-  <div class="col-3">
+<div class="row mb-3">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
     <%= render partial: 'exercises/shared/exercise_card', locals: { link: blanks_exercises_path, title: 'Fill in the Blank', subtitle: 'Blank Advanced Problem', body: 'Create paragraphs with multiple fill in the blank opportunities.'} %>
   </div>
-  <div class="col-3">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
     <%= render partial: 'exercises/shared/exercise_card', locals: { link: dropdowns_exercises_path, title: 'Choose from Dropdown', subtitle: 'Blank Advanced Problem', body: 'Create paragraphs with multiple dropdowns.'} %>
   </div>
-  <div class="col-3">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
     <%= render partial: 'exercises/shared/exercise_card', locals: { link: vocabulary_table_exercises_path, title: 'Vocabulary Table', subtitle: 'Raw HTML', body: 'Create a table of vocabulary with pronunciations.'} %>
   </div>
-  <div class="col-3">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
     <%= render partial: 'exercises/shared/exercise_card', locals: { link: vocabulary_exercises_path, title: 'Single Vocabulary', subtitle: 'Raw HTML', body: 'Create one vocabulary with pronunciation.'} %>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+    <%= render partial: 'exercises/shared/exercise_card', locals: { link: fill_table_exercises_path, title: 'Fill in the Table', subtitle: 'Blank Advanced Problem', body: 'Create a table with some prefilled words for the user to complete.'} %>
   </div>
 </div>

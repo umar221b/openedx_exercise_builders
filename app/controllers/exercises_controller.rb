@@ -7,6 +7,7 @@ class ExercisesController < ApplicationController
   def dropdowns; end
   def vocabulary; end
   def vocabulary_table; end
+  def fill_table; end
 
   # Generate the exercise
   def create
@@ -45,6 +46,8 @@ class ExercisesController < ApplicationController
       Exercises::VocabularyExercise
     when 'vocabulary_table'
       Exercises::VocabularyTableExercise
+    when 'vocabulary_table'
+      Exercises::FillTableExercise
     else
       nil
     end

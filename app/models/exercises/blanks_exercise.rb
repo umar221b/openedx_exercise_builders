@@ -36,14 +36,14 @@ module Exercises
     def inputs_cannot_be_blank
       return unless @substitutions.any? { |_key, value| value.blank? }
 
-      errors.add(:base, 'All correct answers must be filled.')
+      errors.add(:base, 'All correct answers must be filled')
     end
 
     def placeholders_equal_to_inputs
       matches = @text.scan(/\[\[\d+\]\]/)
       return if matches.size == @substitutions.size
 
-      errors.add(:base, 'Number of placeholders in text (e.g., [[0]], [[1]], etc) must be equal to the number of blanks with correct answers.')
+      errors.add(:base, 'Number of placeholders in text (e.g., [[0]], [[1]], etc) must be equal to the number of blanks with correct answers')
     end
 
     # overrides

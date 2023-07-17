@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feed11c8-dfff-4a08-b26b-e9750a6e7ef7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/exercises.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/exercises.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/exercises_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/exercises_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/exercises_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/controllers/exercises_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/exercises_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/controllers/blanks_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/hello_controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/exercises/blanks_exercise.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/exercises/blanks_exercise.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/exercises/blanks.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/exercises/blanks.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/exercises/dropdowns.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/exercises/dropdowns.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/exercises/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/exercises/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,19 +39,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/umar/Desktop/personal_projects/Learn/Aljazeera/openedx_exercise_builders/app/models/exercises&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/umar/Desktop/personal_projects/Learn/Aljazeera/openedx_exercise_builders/app/models/exercises",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/models/exercises" />
+      <recent name="$PROJECT_DIR$/app/views/exercises" />
+      <recent name="$PROJECT_DIR$/app/javascript/controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/models/exercises" />
@@ -167,14 +174,25 @@
       <workItem from="1688974044548" duration="266000" />
       <workItem from="1688974516312" duration="2167000" />
       <workItem from="1689321127936" duration="218000" />
-      <workItem from="1689492562600" duration="6892000" />
+      <workItem from="1689492562600" duration="16263000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/openedx_exercise_builders@Development__openedx_exercise_builders.rcov" NAME="Development: openedx_exercise_builders Coverage Results" MODIFIED="1689499021158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="openedx_exercise_builders" />
+    <SUITE FILE_PATH="coverage/openedx_exercise_builders@Development__openedx_exercise_builders.rcov" NAME="Development: openedx_exercise_builders Coverage Results" MODIFIED="1689576932116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="openedx_exercise_builders" />
   </component>
 </project>
